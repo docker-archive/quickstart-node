@@ -1,0 +1,10 @@
+web:
+  build: .
+  links:
+    - "redis:redis"
+  ports:
+    - "3000:3000"
+redis:
+  image: tutum/redis
+  environment:
+    - REDIS_PASS=password
