@@ -1,4 +1,4 @@
-FROM cmfatih/nodejs:latest
+FROM dockerfile/nodejs:latest
 
 ADD . /app
 WORKDIR /app
