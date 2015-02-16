@@ -3,7 +3,7 @@ web:
   links:
     - "redis:redis"
   ports:
-    - "3000:3000"
+    - "80:80"
 redis:
   image: tutum/redis
   environment:
