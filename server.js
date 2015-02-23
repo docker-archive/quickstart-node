@@ -38,16 +38,19 @@ app.get('/', function (req, res) {
 
 	if(redisConnected){
 		r.incr('counter', function (err, data) {
-		if(err){return res.status(500).send(err);}
-		counter = data;
-		console.log('Visit counter %s', counter)
+			if(err){return res.status(500).send(err);}
+
+			counter = data;
+			console.log('Visit counter %s', counter);
+
+			res.send('Hello ' + process.env.NAME + '!</br> <b>Hostname: </b>' + os.hostname() + '<br/><b>Visits: </b>' + counter);
 		});
 	}else{
 		counter = 'Counter disabled. Redis unavailable or not found.';
 		console.log(counter);
-	}	
 
-	res.send('Hello ' + process.env.NAME + '!</br> <b>Hostname: </b>' + os.hostname() + '<br/><b>Visits: </b>' + counter);
+		res.send('Hello ' + process.env.NAME + '!</br> <b>Hostname: </b>' + os.hostname() + '<br/><b>Visits: </b>' + counter);
+	}
 });
 
 // Display all environment variables for this container
