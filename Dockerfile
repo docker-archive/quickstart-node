@@ -1,4 +1,4 @@
-FROM dockerfile/nodejs:latest
+FROM node:latest
 
 ADD . /app
 WORKDIR /app
