@@ -1,0 +1,10 @@
+sut:
+  build: .
+  links:
+    - redis
+  working_dir: /app
+  command: bash -c "npm install && npm test"
+redis:
+  image: tutum/redis
+  environment:
+    - REDIS_PASS=password
