@@ -8,11 +8,11 @@ var options = {
 };
 var redisConnected = false;
 
-if( process.env.QUICKSTARTNODE_REDIS_1_PORT && process.env.QUICKSTARTNODE_REDIS_1_ENV_REDIS_PASS ){
-	options.auth_pass = process.env.QUICKSTARTNODE_REDIS_1_ENV_REDIS_PASS;
+if( process.env.REDIS_PORT && process.env.REDIS_ENV_REDIS_PASS ){
+	options.auth_pass = process.env.REDIS_ENV_REDIS_PASS;
 
-	var port = process.env.QUICKSTARTNODE_REDIS_1_PORT_6379_TCP_PORT;
-	var host = process.env.QUICKSTARTNODE_REDIS_1_PORT_6379_TCP_ADDR;
+	var port = process.env.REDIS_PORT_6379_TCP_PORT;
+	var host = process.env.REDIS_PORT_6379_TCP_ADDR;
 
 	r = redis.createClient(port, host, options);
 }else{
